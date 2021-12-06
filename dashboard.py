@@ -1,8 +1,8 @@
 import pathlib
 import os
 import dash
-from dash import dcc
-from dash import html
+import dash_core_components as dcc
+import dash_html_components as html
 import pandas as pd
 
 app_path = str(pathlib.Path(__file__).parent.resolve())
