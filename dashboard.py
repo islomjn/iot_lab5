@@ -6,7 +6,7 @@ import dash_html_components as html
 import pandas as pd
 
 app_path = str(pathlib.Path(__file__).parent.resolve())
-df = pd.read_csv(os.path.join(app_path, os.path.join("data", "data.csv")))
+df = pd.read_csv(os.path.join(app_path, os.path.join("data", "blinker.csv")))
 
 app = dash.Dash(__name__, url_base_pathname='/dashboard/')
 server = app.server
@@ -37,35 +37,35 @@ def build_graph():
         figure={
             'data': [
                 {
-                    'x': df['time'],
-                    'y': df['acc_x'],
-                    'name': 'Accelerometer by X-axis',
+                    'x': df['id'],
+                    'y': df['total'],
+                    'name': 'Cumulative sum of blinks per second',
                     'marker': {'size': 12}
                 },
                 {
-                    'x': df['time'],
-                    'y': df['acc_z'],
-                    'name': 'Accelerometer by Y-axis',
+                    'x': df['id'],
+                    'y': df['ear'],
+                    'name': 'Percentage of eye opennes (0 - closed, 1 - full eye)',
                     'marker': {'size': 12}
                 },
-                {
-                    'x': df['time'],
-                    'y': df['gyro_x'],
-                    'name': 'Gyroscope by X-axis',
-                    'marker': {'size': 12}
-                },
-                {
-                    'x': df['time'],
-                    'y': df['gyro_y'][:50],
-                    'name': 'Gyroscope by Y-axis',
-                    'marker': {'size': 12}
-                },
-                {
-                    'x': df['time'],
-                    'y': df['gyro_x'],
-                    'name': 'Gyroscope by Z-axis',
-                    'marker': {'size': 12}
-                },
+#                 {
+#                     'x': df['time'],
+#                     'y': df['gyro_x'],
+#                     'name': 'Gyroscope by X-axis',
+#                     'marker': {'size': 12}
+#                 },
+#                 {
+#                     'x': df['time'],
+#                     'y': df['gyro_y'][:50],
+#                     'name': 'Gyroscope by Y-axis',
+#                     'marker': {'size': 12}
+#                 },
+#                 {
+#                     'x': df['time'],
+#                     'y': df['gyro_x'],
+#                     'name': 'Gyroscope by Z-axis',
+#                     'marker': {'size': 12}
+#                 },
             ],
             'layout': {
                 'plot_bgcolor': theme['background'],
