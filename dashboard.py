@@ -38,7 +38,7 @@ def build_graph():
             'data': [
                 {
                     'x': df['id'],
-                    'y': df['total'],
+                    'y': df['total_blinks'],
                     'name': 'Cumulative sum of blinks per second',
                     'marker': {'size': 12}
                 },
